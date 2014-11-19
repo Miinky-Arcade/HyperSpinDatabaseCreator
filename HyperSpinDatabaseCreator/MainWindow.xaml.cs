@@ -75,10 +75,7 @@ namespace HyperSpinDatabaseCreator
                     return;
                 }
 
-                var newFileName = CreateNewDatabaseName();
-                CreateNewDatabase(newFileName, gameNodes, romNames);
-
-                MessageBox.Show(string.Format("A new database file was created at {0}.", newFileName));
+                CreateNewDatabase(gameNodes, romNames);
             }
             catch (FileNotFoundException exception)
             {
@@ -126,7 +123,7 @@ namespace HyperSpinDatabaseCreator
             return romDirectory.GetFiles().Select(f => f.Name.Substring(0, f.Name.LastIndexOf("."))).ToList();
         }
 
-        private void CreateNewDatabase(string filename, List<XElement> gameNodes, List<string> romNames)
+        private void CreateNewDatabase(List<XElement> gameNodes, List<string> romNames)
         {
             // Create a new XML file in the same directory as the database XML.
             var document = XDocument.Parse(@"<?xml version=""1.0""?><menu></menu>", LoadOptions.PreserveWhitespace);
@@ -147,7 +144,8 @@ namespace HyperSpinDatabaseCreator
             }
 
             // Save the file
-            document.Save(filename, SaveOptions.None);
+            var newFileName = CreateNewDatabaseName();
+            document.Save(newFileName, SaveOptions.None);
         }
 
         private string CreateNewDatabaseName()

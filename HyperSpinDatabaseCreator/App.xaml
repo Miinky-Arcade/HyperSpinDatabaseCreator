@@ -4,5 +4,88 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          
+    	<DataTemplate x:Key="FolderButtonStyle">
+    		<Grid>
+    			<Path x:Name="Stroke_Normal" Data="M48.290657,42.499999 L68.736687,42.499999 C71.944397,42.499999 74.543999,45.100273 74.543999,48.306491 L74.543999,51.09 100.6767,51.09 C103.8838,51.09 106.484,53.690963 106.484,56.896663 L106.484,94.523597 C106.484,97.731399 103.8838,100.331 100.6767,100.331 L48.290642,100.331 C45.083611,100.331 42.484001,97.731399 42.484001,94.523597 L42.484001,56.896663 C42.484001,56.796485 42.486538,56.696899 42.491554,56.597961 L42.496452,56.533599 42.491554,56.469203 C42.486538,56.37022 42.484001,56.27058 42.484001,56.170349 L42.484001,48.306491 C42.484001,45.100273 45.083618,42.499999 48.290657,42.499999 z M74.5,6.7898191 C37.22488,6.7898186 7.0074258,36.068908 7.0074258,72.1865 7.0074258,108.30409 37.22488,137.58318 74.5,137.58318 111.77512,137.58318 141.99257,108.30409 141.99257,72.1865 141.99257,36.068908 111.77512,6.7898186 74.5,6.7898191 z M74.5,0 C115.64521,-6.1094761E-07 149,32.318996 149,72.1865 149,112.054 115.64521,144.373 74.5,144.373 33.354786,144.373 0,112.054 0,72.1865 0,32.318996 33.354786,-6.1094761E-07 74.5,0 z" Fill="#FF5CA1EB" Stretch="Fill" Visibility="Visible" Margin="-1.665,0,1.665,0"/>
+    			<Path x:Name="Stroke_Hover" Data="M48.290657,42.499999 L68.736687,42.499999 C71.944397,42.499999 74.543999,45.100273 74.543999,48.306491 L74.543999,51.09 100.6767,51.09 C103.8838,51.09 106.484,53.690963 106.484,56.896663 L106.484,94.523597 C106.484,97.731399 103.8838,100.331 100.6767,100.331 L48.290642,100.331 C45.083611,100.331 42.484001,97.731399 42.484001,94.523597 L42.484001,56.896663 C42.484001,56.796485 42.486538,56.696899 42.491554,56.597961 L42.496452,56.533599 42.491554,56.469203 C42.486538,56.37022 42.484001,56.27058 42.484001,56.170349 L42.484001,48.306491 C42.484001,45.100273 45.083618,42.499999 48.290657,42.499999 z M74.5,6.7898191 C37.22488,6.7898186 7.0074258,36.068908 7.0074258,72.1865 7.0074258,108.30409 37.22488,137.58318 74.5,137.58318 111.77512,137.58318 141.99257,108.30409 141.99257,72.1865 141.99257,36.068908 111.77512,6.7898186 74.5,6.7898191 z M74.5,0 C115.64521,-6.1094761E-07 149,32.318996 149,72.1865 149,112.054 115.64521,144.373 74.5,144.373 33.354786,144.373 0,112.054 0,72.1865 0,32.318996 33.354786,-6.1094761E-07 74.5,0 z" Fill="#FF5CA1EB" Stretch="Fill" Visibility="Visible"/>
+    			<Path x:Name="Stroke_Pressed" Data="M48.290657,42.499999 L68.736687,42.499999 C71.944397,42.499999 74.543999,45.100273 74.543999,48.306491 L74.543999,51.09 100.6767,51.09 C103.8838,51.09 106.484,53.690963 106.484,56.896663 L106.484,94.523597 C106.484,97.731399 103.8838,100.331 100.6767,100.331 L48.290642,100.331 C45.083611,100.331 42.484001,97.731399 42.484001,94.523597 L42.484001,56.896663 C42.484001,56.796485 42.486538,56.696899 42.491554,56.597961 L42.496452,56.533599 42.491554,56.469203 C42.486538,56.37022 42.484001,56.27058 42.484001,56.170349 L42.484001,48.306491 C42.484001,45.100273 45.083618,42.499999 48.290657,42.499999 z M74.5,6.7898191 C37.22488,6.7898186 7.0074258,36.068908 7.0074258,72.1865 7.0074258,108.30409 37.22488,137.58318 74.5,137.58318 111.77512,137.58318 141.99257,108.30409 141.99257,72.1865 141.99257,36.068908 111.77512,6.7898186 74.5,6.7898191 z M74.5,0 C115.64521,-6.1094761E-07 149,32.318996 149,72.1865 149,112.054 115.64521,144.373 74.5,144.373 33.354786,144.373 0,112.054 0,72.1865 0,32.318996 33.354786,-6.1094761E-07 74.5,0 z" Fill="#FF5CA1EB" Stretch="Fill" Visibility="Visible"/>
+			</Grid>
+    	</DataTemplate>
+    	<Style x:Key="FocusVisual">
+    		<Setter Property="Control.Template">
+    			<Setter.Value>
+    				<ControlTemplate>
+    					<Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+    	<SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+    	<SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+    	<SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+    	<SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+    	<SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+    	<SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+    	<SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+    	<SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+    	<SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+    	<Style x:Key="OpenFolderButtonStyle" TargetType="{x:Type Button}">
+    		<Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+    		<Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+    		<Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+    		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+    		<Setter Property="BorderThickness" Value="1"/>
+    		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+    		<Setter Property="VerticalContentAlignment" Value="Center"/>
+    		<Setter Property="Padding" Value="1"/>
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="{x:Type Button}">
+    					<Grid Background="#00000000">
+    						<VisualStateManager.VisualStateGroups>
+    							<VisualStateGroup x:Name="CommonStates">
+    								<VisualState x:Name="Normal">
+    									<Storyboard>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Stroke_Normal">
+    											<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+    										</ObjectAnimationUsingKeyFrames>
+    									</Storyboard>
+    								</VisualState>
+    								<VisualState x:Name="MouseOver">
+    									<Storyboard>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Stroke_Hover">
+    											<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+    										</ObjectAnimationUsingKeyFrames>
+    									</Storyboard>
+    								</VisualState>
+    								<VisualState x:Name="Pressed">
+    									<Storyboard>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Stroke_Pressed">
+    											<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+    										</ObjectAnimationUsingKeyFrames>
+    									</Storyboard>
+    								</VisualState>
+    								<VisualState x:Name="Disabled"/>
+    							</VisualStateGroup>
+    						</VisualStateManager.VisualStateGroups>
+    						<Path x:Name="Stroke_Pressed" Data="M48.290657,42.499999 L68.736687,42.499999 C71.944397,42.499999 74.543999,45.100273 74.543999,48.306491 L74.543999,51.09 100.6767,51.09 C103.8838,51.09 106.484,53.690963 106.484,56.896663 L106.484,94.523597 C106.484,97.731399 103.8838,100.331 100.6767,100.331 L48.290642,100.331 C45.083611,100.331 42.484001,97.731399 42.484001,94.523597 L42.484001,56.896663 C42.484001,56.796485 42.486538,56.696899 42.491554,56.597961 L42.496452,56.533599 42.491554,56.469203 C42.486538,56.37022 42.484001,56.27058 42.484001,56.170349 L42.484001,48.306491 C42.484001,45.100273 45.083618,42.499999 48.290657,42.499999 z M74.5,6.7898191 C37.22488,6.7898186 7.0074258,36.068908 7.0074258,72.1865 7.0074258,108.30409 37.22488,137.58318 74.5,137.58318 111.77512,137.58318 141.99257,108.30409 141.99257,72.1865 141.99257,36.068908 111.77512,6.7898186 74.5,6.7898191 z M74.5,0 C115.64521,-6.1094761E-07 149,32.318996 149,72.1865 149,112.054 115.64521,144.373 74.5,144.373 33.354786,144.373 0,112.054 0,72.1865 0,32.318996 33.354786,-6.1094761E-07 74.5,0 z" Fill="#FF222222" Stretch="Fill" Visibility="Hidden" />
+    						<Path x:Name="Stroke_Hover" Data="M48.290657,42.499999 L68.736687,42.499999 C71.944397,42.499999 74.543999,45.100273 74.543999,48.306491 L74.543999,51.09 100.6767,51.09 C103.8838,51.09 106.484,53.690963 106.484,56.896663 L106.484,94.523597 C106.484,97.731399 103.8838,100.331 100.6767,100.331 L48.290642,100.331 C45.083611,100.331 42.484001,97.731399 42.484001,94.523597 L42.484001,56.896663 C42.484001,56.796485 42.486538,56.696899 42.491554,56.597961 L42.496452,56.533599 42.491554,56.469203 C42.486538,56.37022 42.484001,56.27058 42.484001,56.170349 L42.484001,48.306491 C42.484001,45.100273 45.083618,42.499999 48.290657,42.499999 z M74.5,6.7898191 C37.22488,6.7898186 7.0074258,36.068908 7.0074258,72.1865 7.0074258,108.30409 37.22488,137.58318 74.5,137.58318 111.77512,137.58318 141.99257,108.30409 141.99257,72.1865 141.99257,36.068908 111.77512,6.7898186 74.5,6.7898191 z M74.5,0 C115.64521,-6.1094761E-07 149,32.318996 149,72.1865 149,112.054 115.64521,144.373 74.5,144.373 33.354786,144.373 0,112.054 0,72.1865 0,32.318996 33.354786,-6.1094761E-07 74.5,0 z" Fill="#FF5CA1EB" Stretch="Fill" Visibility="Hidden" />
+    						<Path x:Name="Stroke_Normal" Data="M48.290657,42.499999 L68.736687,42.499999 C71.944397,42.499999 74.543999,45.100273 74.543999,48.306491 L74.543999,51.09 100.6767,51.09 C103.8838,51.09 106.484,53.690963 106.484,56.896663 L106.484,94.523597 C106.484,97.731399 103.8838,100.331 100.6767,100.331 L48.290642,100.331 C45.083611,100.331 42.484001,97.731399 42.484001,94.523597 L42.484001,56.896663 C42.484001,56.796485 42.486538,56.696899 42.491554,56.597961 L42.496452,56.533599 42.491554,56.469203 C42.486538,56.37022 42.484001,56.27058 42.484001,56.170349 L42.484001,48.306491 C42.484001,45.100273 45.083618,42.499999 48.290657,42.499999 z M74.5,6.7898191 C37.22488,6.7898186 7.0074258,36.068908 7.0074258,72.1865 7.0074258,108.30409 37.22488,137.58318 74.5,137.58318 111.77512,137.58318 141.99257,108.30409 141.99257,72.1865 141.99257,36.068908 111.77512,6.7898186 74.5,6.7898191 z M74.5,0 C115.64521,-6.1094761E-07 149,32.318996 149,72.1865 149,112.054 115.64521,144.373 74.5,144.373 33.354786,144.373 0,112.054 0,72.1865 0,32.318996 33.354786,-6.1094761E-07 74.5,0 z" Fill="#FF434343" Stretch="Fill" Visibility="Hidden" />
+    					</Grid>
+    					<ControlTemplate.Triggers>
+    						<Trigger Property="IsDefaulted" Value="true">
+    						</Trigger>
+    						<Trigger Property="IsMouseOver" Value="true">
+    						</Trigger>
+    						<Trigger Property="IsPressed" Value="true">
+    						</Trigger>
+    						<Trigger Property="IsEnabled" Value="false">
+    						</Trigger>
+    					</ControlTemplate.Triggers>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+         
     </Application.Resources>
 </Application>
